@@ -1,24 +1,15 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
-import {
-  Label,
-  Input,
-} from './Filter.styled';
+import { Label, Input } from './Filter.styled';
 
-import {
-  useSelector,
-  useDispatch,
-} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from '../../redux/contacts/contacts_selector';
-import { changeFilter } from '../../redux/contacts/contact_actions';
+import { changeFilter } from '../../redux/contacts/contacts_actions';
 
 function Filter() {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
-  const onChange = e =>
-    dispatch(
-      changeFilter(e.target.value),
-    );
+  const onChange = e => dispatch(changeFilter(e.target.value));
 
   return (
     <Label>

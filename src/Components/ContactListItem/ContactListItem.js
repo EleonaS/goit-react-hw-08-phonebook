@@ -2,20 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'Components/Form/Form.styled';
 
-const ContactsListItem = ({
-  id,
-  name,
-  number,
-  onDeleteContact,
-}) => (
+const ContactsListItem = ({ id, name, phone, onDeleteContact }) => (
   <>
-    {name}: {number}
-    <Button
-      type="button"
-      onClick={() =>
-        onDeleteContact(id)
-      }
-    >
+    {name}: {phone}
+    <Button type="button" onClick={() => onDeleteContact(id)}>
       Delete
     </Button>
   </>
@@ -23,10 +13,9 @@ const ContactsListItem = ({
 
 ContactsListItem.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string,
   id: PropTypes.string.isRequired,
-  onDeleteContact:
-    PropTypes.func.isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
 };
 
 export { ContactsListItem };

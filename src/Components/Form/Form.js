@@ -1,16 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 //import PropTypes from 'prop-types';
-import {
-  Form,
-  Input,
-  Label,
-  Button,
-} from './Form.styled';
-import {
-  useSelector,
-  useDispatch,
-} from 'react-redux';
-import { addContact } from '../../redux/contacts/contact_actions';
+import { Form, Input, Label, Button } from './Form.styled';
+import { useSelector, useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contacts/contacts_operations';
 
 import { getItems } from '../../redux/contacts/contacts_selector';
 import toast from 'react-hot-toast';
@@ -18,46 +10,27 @@ import { nanoid } from 'nanoid';
 
 function ContactForm() {
   const [name, setName] = useState('');
-  const [number, setNumber] =
-    useState('');
+  //const [number, setNumber] =
+  //  useState('');
+  const [phone, setPhone] = useState('');
 
   const items = useSelector(getItems);
   const dispatch = useDispatch();
 
   function handleChange(e) {
-    const { name, value } =
-      e.currentTarget;
-    /*switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        return;
-    }*/
-    name === 'name'
-      ? setName(value)
-      : setNumber(value);
+    const { name, value } = e.currentTarget;
+    name === 'name' ? setName(value) : setPhone(value);
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    if (
-      items.find(
-        contact =>
-          contact.name === name,
-      )
-    ) {
-      toast(
-        `${name} is already in contacts`,
-      );
+    if (items.find(contact => contact.name === name)) {
+      toast(`${name} is already in contacts`);
     } else {
       dispatch(
         addContact({
           name,
-          number,
+          phone,
           id: nanoid(),
         }),
       );
@@ -66,9 +39,8 @@ function ContactForm() {
   }
 
   function reset() {
-    //this.setState({
     setName('');
-    setNumber('');
+    setPhone('');
   }
 
   return (
@@ -91,7 +63,7 @@ function ContactForm() {
         <Input
           type="tel"
           name="number"
-          value={number}
+          value={phone}
           onChange={handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
@@ -99,9 +71,7 @@ function ContactForm() {
           required
         />
       </Label>
-      <Button type="submit">
-        Add contact
-      </Button>
+      <Button type="submit">Add contact</Button>
     </Form>
   );
 }

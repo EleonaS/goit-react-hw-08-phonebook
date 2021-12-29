@@ -1,39 +1,49 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  addContact,
-  deleteContact,
+  addContactRequest,
+  addContactSuccess,
+  addContactError,
+  deleteContactRequest,
+  deleteContactSuccess,
+  deleteContactError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  fetchContactsError,
   changeFilter,
-} from './contact_actions';
-//import toast from "react-hot-toast";
-//import { nanoid } from 'nanoid';
+} from './contacts_actions';
 
 const contactsInitial = [];
 
-const items = createReducer(
-  contactsInitial,
-  {
-    [addContact]: (
-      state,
-      { payload },
-    ) => [...state, payload],
+const items = createReducer(contactsInitial, {
+  [fetchContactsSuccess]: (_, { payload }) => payload,
 
-    [deleteContact]: (
-      state,
-      { payload },
-    ) =>
-      state.filter(
-        ({ id }) => id !== payload,
-      ),
-  },
-);
+  [addContactSuccess]: (state, { payload }) => [...state, payload],
+
+  [deleteContactSuccess]: (state, { payload }) =>
+    state.filter(({ id }) => id !== payload),
+});
 
 const filter = createReducer('', {
-  [changeFilter]: (_, { payload }) =>
-    payload,
+  [changeFilter]: (_, { payload }) => payload,
+});
+
+const loading = createReducer(false, {
+  [fetchContactsRequest]: () => true,
+  [fetchContactsSuccess]: () => false,
+  [fetchContactsError]: () => false,
+
+  [addContactRequest]: () => true,
+  [addContactSuccess]: () => false,
+  [addContactError]: () => false,
+
+  [deleteContactRequest]: () => true,
+  [deleteContactSuccess]: () => false,
+  [deleteContactError]: () => false,
 });
 
 export default combineReducers({
   items,
   filter,
+  loading,
 });
