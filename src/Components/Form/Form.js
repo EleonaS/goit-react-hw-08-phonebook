@@ -1,49 +1,68 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import {
   Form,
   Input,
   Label,
   Button,
 } from './Form.styled';
+import {
+  useSelector,
+  useDispatch,
+} from 'react-redux';
+import { addContact } from '../../redux/contacts/contact_actions';
 
-/*class ContactForm extends Component {
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-  };
+import { getItems } from '../../redux/contacts/contacts_selector';
+import toast from 'react-hot-toast';
+import { nanoid } from 'nanoid';
 
-  state = {
-    name: '',
-    number: '',
-  };
-*/
-
-function ContactForm({ onSubmit }) {
+function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] =
     useState('');
 
+  const items = useSelector(getItems);
+  const dispatch = useDispatch();
+
   function handleChange(e) {
     const { name, value } =
       e.currentTarget;
-    //this.setState({ [name]: value });
-    switch (name) {
+    /*switch (name) {
       case 'name':
         setName(value);
         break;
       case 'number':
         setNumber(value);
         break;
-
       default:
         return;
-    }
+    }*/
+    name === 'name'
+      ? setName(value)
+      : setNumber(value);
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    onSubmit({ name, number });
-    reset();
+    if (
+      items.find(
+        contact =>
+          contact.name === name,
+      )
+    ) {
+      toast(
+        `${name} is already in contacts`,
+      );
+    } else {
+      dispatch(
+        addContact({
+          name,
+          number,
+          id: nanoid(),
+        }),
+      );
+      reset();
+    }
   }
 
   function reset() {
@@ -87,10 +106,10 @@ function ContactForm({ onSubmit }) {
   );
 }
 
-ContactForm.propType = {
+/*ContactForm.propType = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   onSumbit: PropTypes.func.isRequired,
-};
+};*/
 
 export { ContactForm };
