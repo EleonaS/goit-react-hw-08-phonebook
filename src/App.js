@@ -1,6 +1,3 @@
-//import { useState } from 'react';
-//import useLocalStorage from 'hooks/useLocalStorage';
-//import { nanoid } from 'nanoid';
 import { Section } from 'Components/Section/Section';
 import { Container } from 'Components/Container/Container';
 import { Title } from 'Components/Title/Title';

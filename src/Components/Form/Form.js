@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 //import PropTypes from 'prop-types';
 import { Form, Input, Label, Button } from './Form.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/contacts_operations';
+import { addContact } from 'redux/contacts/contacts_operations';
 
-import { getItems } from '../../redux/contacts/contacts_selector';
+import { getItems } from 'redux/contacts/contacts_selector';
 import toast from 'react-hot-toast';
 import { nanoid } from 'nanoid';
 
