@@ -45,9 +45,11 @@ const error = createReducer(null, {
   [deleteContact.pending]: () => null,
 });
 
-export default combineReducers({
+const ContactsReducer = combineReducers({
   items,
   filter,
   loading,
   error,
 });
+
+export default ContactsReducer;

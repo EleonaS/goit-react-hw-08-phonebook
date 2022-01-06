@@ -12,14 +12,14 @@ function ContactForm() {
   const [name, setName] = useState('');
   //const [number, setNumber] =
   //  useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const items = useSelector(getItems);
   const dispatch = useDispatch();
 
   function handleChange(e) {
     const { name, value } = e.currentTarget;
-    name === 'name' ? setName(value) : setPhone(value);
+    name === 'name' ? setName(value) : setNumber(value);
   }
 
   function handleFormSubmit(e) {
@@ -30,7 +30,7 @@ function ContactForm() {
       dispatch(
         addContact({
           name,
-          phone,
+          number,
           id: nanoid(),
         }),
       );
@@ -40,7 +40,7 @@ function ContactForm() {
 
   function reset() {
     setName('');
-    setPhone('');
+    setNumber('');
   }
 
   return (
@@ -63,7 +63,7 @@ function ContactForm() {
         <Input
           type="tel"
           name="number"
-          value={phone}
+          value={number}
           onChange={handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
