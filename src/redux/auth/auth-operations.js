@@ -21,8 +21,9 @@ export const register = createAsyncThunk('auth/register', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error);
-    toast.error(error.message);
+    //console.log(error);
+    //toast.error(error.message);
+    return createAsyncThunk.rejectWithValue(error);
   }
 });
 
@@ -34,7 +35,8 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    toast.error(error.message);
+    //toast.error(error.message);
+    return createAsyncThunk.rejectWithValue(error);
   }
 });
 
@@ -44,7 +46,8 @@ export const logOut = createAsyncThunk('auth/logout', async () => {
     await axios.post('/users/logout');
     token.unset();
   } catch (error) {
-    toast.error(error.message);
+    //toast.error(error.message);
+    return createAsyncThunk.rejectWithValue(error);
   }
 });
 /*
