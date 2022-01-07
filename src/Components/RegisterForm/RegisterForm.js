@@ -17,7 +17,6 @@ import {
   StyledField,
   StyledAvatar,
 } from './RegisterForm.styled';
-//import { nanoid } from 'nanoid';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -26,9 +25,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  /*const nameInputId = nanoid();
-  const emailInputId = nanoid();
-  const passwordInputId = nanoid();*/
+  //const Id = nanoid();
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -68,7 +65,6 @@ const RegisterForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                //id={nameInputId}
                 value={name}
                 name="name"
                 type="text"
@@ -83,7 +79,7 @@ const RegisterForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                //id={emailInputId}
+                //id=
                 value={email}
                 name="email"
                 type="email"
@@ -105,7 +101,7 @@ const RegisterForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                //id={passwordInputId}
+                //id=
                 name="password"
                 value={password}
                 label="Password"

@@ -18,9 +18,7 @@ import {
   StyledField,
   StyledAvatar,
 } from './LoginForm.styled';
-
-import { nanoid } from 'nanoid';
-//import Section from "components/Section/Section";
+//import { nanoid } from 'nanoid';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -29,8 +27,7 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
 
-  const emailInputId = nanoid();
-  const passwordInputId = nanoid();
+  //const InputId = nanoid();
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -70,7 +67,6 @@ const LoginForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                id={emailInputId}
                 name="email"
                 type="email"
                 label="Email"
@@ -91,7 +87,6 @@ const LoginForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                id={passwordInputId}
                 name="password"
                 label="Password"
                 type={showPassword ? 'text' : 'password'}
