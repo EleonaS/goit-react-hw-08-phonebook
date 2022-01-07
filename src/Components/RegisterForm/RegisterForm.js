@@ -2,15 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
-import { register } from '../../redux/auth/auth-operations';
+import { register } from 'redux/auth/auth-operations';
 import {
+  StylesProvider,
   Grid,
   IconButton,
-  StylesProvider,
   Typography,
 } from '@material-ui/core';
-//import Section from "components/Section/Section";
 import { AccountCircle, Visibility, VisibilityOff } from '@material-ui/icons';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import {
@@ -19,19 +17,18 @@ import {
   StyledField,
   StyledAvatar,
 } from './RegisterForm.styled';
-import { nanoid } from 'nanoid';
+//import { nanoid } from 'nanoid';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const nameInputId = nanoid();
+  /*const nameInputId = nanoid();
   const emailInputId = nanoid();
-  const passwordInputId = nanoid();
+  const passwordInputId = nanoid();*/
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -71,7 +68,7 @@ const RegisterForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                id={nameInputId}
+                //id={nameInputId}
                 value={name}
                 name="name"
                 type="text"
@@ -86,13 +83,13 @@ const RegisterForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                id={emailInputId}
+                //id={emailInputId}
                 value={email}
                 name="email"
                 type="email"
                 label="Email"
                 autoComplete="off"
-                placeholder="abc@mail.com"
+                placeholder=""
                 onChange={handleChange}
                 required
                 fullWidth
@@ -108,7 +105,7 @@ const RegisterForm = () => {
             </Grid>
             <Grid item>
               <StyledField
-                id={passwordInputId}
+                //id={passwordInputId}
                 name="password"
                 value={password}
                 label="Password"

@@ -47,7 +47,6 @@ export default function App() {
       ) : (
         <>
           <AppBar />
-
           <Suspense fallback={<Loader size={200} />}>
             <Routes>
               <Route
@@ -86,7 +85,6 @@ export default function App() {
           </Suspense>
         </>
       )}
-
       <Toaster autoClose={2000} />
     </>
   );

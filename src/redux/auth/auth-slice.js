@@ -3,10 +3,9 @@ import { register, logIn, logOut, fetchCurrentUser } from './auth-operations';
 
 const initialState = {
   user: { name: null, email: null },
-  //password: null},
   token: null,
   isLoggedIn: false,
-  isFetchingCurrentUser: false,
+  isFetchingUser: false,
 };
 
 const authSlice = createSlice({
@@ -48,3 +47,12 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
+///тоже не работает
+/*[register.fulfilled]: (state, { payload }) => {
+      state.user = payload.user;
+      state.token = payload.token;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+}*/
+///

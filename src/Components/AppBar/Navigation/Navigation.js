@@ -6,7 +6,7 @@ import {} from 'Components/AppBar/Navigation/Navigation.styled';
 
 export const activeStyle = ({ isActive }) => {
   return {
-    color: isActive ? '#3e84be' : '#fff',
+    color: isActive ? 'grey' : '#fff',
     textDecoration: 'none',
   };
 };

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const StyledBox = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const StyledImg = styled.img`
@@ -13,7 +14,6 @@ const StyledImg = styled.img`
 
 const StyledWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   font-size: 20px;
 `;
@@ -31,14 +31,16 @@ const StyledName = styled.span`
 
 const StyledButton = styled.button`
   padding: 5px 10px;
-  border: 1px solid #b479ff;
+  border: 1px solid red;
   color: black;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
   transition: all 250ms ease-in-out;
   &:hover {
     background-color: white;
     border-color: whitesmoke;
     color: #764fa8;
-    font-weight: 700;
   }
 `;
 

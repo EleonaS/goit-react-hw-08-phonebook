@@ -20,14 +20,11 @@ const WrapperNav = styled.div`
 `;
 
 const Box = styled.div`
+  width: 350px;
   justify-content: space-between;
-  /*font-weight: 600;font-size: 20px;*/
   display: flex;
   flex-direction: row;
   border: none;
-  /* width: 300px;
-  
-  color: #000;*/
 `;
 
 export { StyledHeader, WrapperNav, Box };

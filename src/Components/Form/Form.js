@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Form, Input, Label, Button } from './Form.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/contacts_operations';
@@ -76,10 +76,10 @@ function ContactForm() {
   );
 }
 
-/*ContactForm.propType = {
+ContactForm.propType = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   onSumbit: PropTypes.func.isRequired,
-};*/
+};
 
 export { ContactForm };

@@ -17,13 +17,12 @@ export default function UserMenu() {
 
   return (
     <StyledBox>
-      <StyledImg src={avatar} alt="" width="64" />
+      <StyledImg src={avatar} alt="img" width="30" />
       <StyledWrapper>
         <StyledText>Welcome,</StyledText>
         <StyledName>{`${name}!`}</StyledName>
       </StyledWrapper>
       <StyledButton onClick={() => dispatch(logOut())}>Log Out</StyledButton>
-      Log out
     </StyledBox>
   );
 }

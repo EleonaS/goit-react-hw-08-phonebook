@@ -9,8 +9,8 @@ const HomeView = () => {
         <Text>
           <br />
           {'\u00A0'}
-          <StyledLink to="/register">Create your account</StyledLink>
-          {'\u00A0'}or{'\u00A0'}
+          <StyledLink to="/register">Create </StyledLink>
+          {'\u00A0'}your account or{'\u00A0'}
           <StyledLink to="/login">log in</StyledLink>
           {'\u00A0'}, if you already have one.
         </Text>
