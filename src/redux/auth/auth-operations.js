@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -19,11 +19,12 @@ export const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('/users/signup', credentials);
     token.set(data.token);
+    toast.success(`You are successfully registered`);
     return data;
   } catch (error) {
     //console.log(error);
-    //toast.warning('Such an account already exists');
-    return createAsyncThunk.rejectWithValue(error);
+    toast.error(`Such an account already exists`);
+    return createAsyncThunk.rejectWithValue(error.message);
   }
 });
 
@@ -33,10 +34,11 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
+    toast.success(`You are successfully loged in`);
     return data;
   } catch (error) {
-    //toast.error(error.message);
-    return createAsyncThunk.rejectWithValue(error);
+    toast.error(`Please, try again`);
+    return createAsyncThunk.rejectWithValue(error.message);
   }
 });
 
@@ -47,7 +49,7 @@ export const logOut = createAsyncThunk('auth/logout', async () => {
     token.unset();
   } catch (error) {
     //toast.error(error.message);
-    return createAsyncThunk.rejectWithValue(error);
+    return createAsyncThunk.rejectWithValue(error.message);
   }
 });
 /*

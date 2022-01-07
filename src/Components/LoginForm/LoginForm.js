@@ -71,7 +71,7 @@ const LoginForm = () => {
                 type="email"
                 label="Email"
                 autoComplete="off"
-                placeholder="email@mail.com"
+                placeholder=""
                 onChange={handleChange}
                 required
                 fullWidth
