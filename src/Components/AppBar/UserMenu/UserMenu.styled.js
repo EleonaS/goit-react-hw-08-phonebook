@@ -8,18 +8,19 @@ const StyledBox = styled.div`
 `;
 
 const StyledImg = styled.img`
-  margin-right: 10px;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
+  margin-right: 5px;
 `;
 
 const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 20px;
+  margin-right: 5px;
 `;
 
 const StyledText = styled.span`
-  margin-right: 15px;
+  margin-right: 5px;
   color: grey;
   font-weight: 600;
 `;
@@ -30,10 +31,11 @@ const StyledName = styled.span`
 `;
 
 const StyledButton = styled.button`
-  padding: 5px 10px;
-  border: 1px solid red;
-  color: black;
-  font-size: 20px;
+  padding: 5px 5px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  color: grey;
+  font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
   transition: all 250ms ease-in-out;

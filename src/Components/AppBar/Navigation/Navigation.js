@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../../redux/auth/auth-selectors';
-import {} from 'Components/AppBar/Navigation/Navigation.styled';
+import { StyledNav } from './Navigation.styled';
 
 export const activeStyle = ({ isActive }) => {
   return {
@@ -14,7 +14,7 @@ export const activeStyle = ({ isActive }) => {
 export default function Navigation() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <nav>
+    <StyledNav>
       <NavLink to="/" style={activeStyle}>
         Home
       </NavLink>
@@ -24,6 +24,6 @@ export default function Navigation() {
           Contacts
         </NavLink>
       )}
-    </nav>
+    </StyledNav>
   );
 }

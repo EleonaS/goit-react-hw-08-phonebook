@@ -17,7 +17,7 @@ export default function UserMenu() {
 
   return (
     <StyledBox>
-      <StyledImg src={avatar} alt="img" width="30" />
+      <StyledImg src={avatar} alt="img" width="60" />
       <StyledWrapper>
         <StyledText>Welcome,</StyledText>
         <StyledName>{`${name}!`}</StyledName>
