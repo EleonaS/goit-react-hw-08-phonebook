@@ -5,7 +5,7 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
-  isFetchingUser: false,
+  isFetchingCurrentUser: false,
 };
 
 const authSlice = createSlice({
@@ -33,26 +33,17 @@ const authSlice = createSlice({
     },
 
     [fetchCurrentUser.pending](state) {
-      state.isFetchingUser = true;
+      state.isFetchingCurrentUser = true;
     },
     [fetchCurrentUser.fulfilled](state, action) {
       state.user = { ...action.payload };
       state.isLoggedIn = true;
-      state.isFetchingUser = false;
+      state.isFetchingCurrentUser = false;
     },
     [fetchCurrentUser.rejected](state) {
-      state.isFetchingUser = false;
+      state.isFetchingCurrentUser = false;
     },
   },
 });
 
 export default authSlice.reducer;
-
-///тоже не работает
-/*[register.fulfilled]: (state, { payload }) => {
-      state.user = payload.user;
-      state.token = payload.token;
-      state.isLoggedIn = true;
-      state.isLoading = false;
-}*/
-///

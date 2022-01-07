@@ -22,7 +22,7 @@ export const register = createAsyncThunk('auth/register', async credentials => {
     return data;
   } catch (error) {
     //console.log(error);
-    //toast.error(error.message);
+    //toast.warning('Such an account already exists');
     return createAsyncThunk.rejectWithValue(error);
   }
 });

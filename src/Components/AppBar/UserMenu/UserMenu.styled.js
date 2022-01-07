@@ -8,8 +8,9 @@ const StyledBox = styled.div`
 `;
 
 const StyledImg = styled.img`
-  /*border-radius: 50%;*/
-  margin-right: 5px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: whitesmoke;
 `;
 
 const StyledWrapper = styled.div`
@@ -27,12 +28,12 @@ const StyledText = styled.span`
 
 const StyledName = styled.span`
   composes: name;
-  color: blue;
+  color: green;
 `;
 
 const StyledButton = styled.button`
   padding: 5px 5px;
-  border: 1px solid blue;
+  border: 1px solid green;
   border-radius: 5px;
   color: grey;
   font-size: 18px;
