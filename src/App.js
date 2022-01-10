@@ -7,10 +7,7 @@ import { Loader } from './Components/Loader/Loader';
 //import { Container } from 'Components/Container/Container';
 import PrivateRoute from 'Components/PrivateRoute';
 import PublicRoute from 'Components/PublicRoute';
-import {
-  //toast,
-  Toaster,
-} from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import authSelectors from 'redux/auth/auth-selectors';
