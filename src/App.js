@@ -13,7 +13,7 @@ import {
 } from 'react-hot-toast';
 
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
-import { authSelectors } from 'redux/auth/auth-selectors';
+import authSelectors from 'redux/auth/auth-selectors';
 
 const HomeView = lazy(() =>
   import('./views/HomeView/HomeView' /* webpackChunkName: "HomeView" */),

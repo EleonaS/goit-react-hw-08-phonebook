@@ -13,4 +13,4 @@ const authSelectors = {
   getFetchingCurrent,
 };
 
-export { authSelectors };
+export default authSelectors;

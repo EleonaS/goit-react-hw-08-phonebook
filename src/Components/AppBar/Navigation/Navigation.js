@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { authSelectors } from '../../../redux/auth/auth-selectors';
+import authSelectors from '../../../redux/auth/auth-selectors';
 import { StyledNav } from './Navigation.styled';
 
 export const activeStyle = ({ isActive }) => {

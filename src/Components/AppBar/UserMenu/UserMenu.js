@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { authSelectors } from '../../../redux/auth/auth-selectors';
+import authSelectors from '../../../redux/auth/auth-selectors';
 import { logOut } from '../../../redux/auth/auth-operations';
 import {
   StyledBox,
